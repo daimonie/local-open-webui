@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "local-ask-llm"
+version = "0.1.0"
+description = ""
+authors = ["Josko de Boer <Josko.deboer@xomnia.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.12.3"
+numpy = "^2.2.0"
+scipy = "^1.14.1"
+polars = "^1.17.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
