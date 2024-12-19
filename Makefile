@@ -19,6 +19,7 @@ build-python:
 
 dev-python:
 	docker run -v $(PWD)/container/:/opt/container \
+	-v $(PWD)/open-webui/:/opt/container/data \
 	--network=lantean-network \
 	--memory=16g \
 	--rm -ti --entrypoint=bash local-ask-llm
