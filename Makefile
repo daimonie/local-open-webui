@@ -4,7 +4,11 @@ install:
 	docker pull ghcr.io/open-webui/open-webui:ollama
 
 run:
-	docker run -d -p 3000:8080 --gpus=all -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
+	docker run -d -p 3000:8080 --gpus=all \
+	--network=lantean-network \
+	-v ollama:/root/.ollama -v open-webui:/app/backend/data \
+	--name open-webui --restart always \
+	ghcr.io/open-webui/open-webui:ollama
 
 stop:
 	docker stop open-webui
@@ -15,5 +19,6 @@ build-python:
 
 dev-python:
 	docker run -v $(PWD)/container/:/opt/container \
+	--network=lantean-network \
 	--memory=16g \
 	--rm -ti --entrypoint=bash local-ask-llm
